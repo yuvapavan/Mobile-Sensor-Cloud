@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Update Sensors</title>
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+
+<body class="container">
+
+  <header>
+    <% include partials/header %>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-md-4">
+        <% include partials/navadmin %>
+      </div>
+      <div class="col-md-8">
+        <h1 class="headline">Update Sensors</h1><br><br>
+        <form name="newuser" method="post" action="/updatesensor">
+          <div class="form-group">
+            <label for="inputSensor">Sensor Name</label>
+            <input name="name" class="form-control" id="inputSensor" placeholder="Sensor Name To be Updated">
+          </div>
+          <div class="form-group">
+            <label for="inputNewName">New Name</label>
+            <input name="newname" class="form-control" id="inputType" placeholder="New Sensor Name">
+          </div>
+          <div class="form-group">
+            <label for="inputprice">Price</label>
+            <input name="price" class="form-control" id="inputprice" placeholder="New Price">
+          </div>
+          <button type="submit" class="btn btn-primary">Update Sensor</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+    <footer class="navbar-fixed-bottom">
+      <% include partials/footer %>
+    </footer>
+
+  </body>
+</html>

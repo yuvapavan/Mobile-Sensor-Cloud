@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Users</title>
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+
+  <body class="container">
+
+  <header>
+    <% include partials/header %>
+    <% if (typeof deleteUserSuccess != "undefined" && deleteUserSuccess == 1) { %>
+     <script>
+        alert("Successfully deleted the user!");
+     </script>
+     <% } %>
+
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-md-4">
+        <% include partials/navadmin %>
+      </div>
+      <div class="col-md-8">
+      <h1 class="headline">Delete Users</h1><br><br>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Email ID</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% user.forEach(function(user) { %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <form name="newuser" method="post" action="/deleteusers">
+                <input id="userName" type="hidden" name="name" value="<%= user.name %>" style="width: 100px;">
+                <input id="delUser" type="submit" value="Delete" type="button" class="btn btn-primary">
+                </form>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="navbar-fixed-bottom">
+    <% include partials/footer %>
+  </footer>
+
+  </body>
+</html>

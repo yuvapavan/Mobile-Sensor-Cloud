@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>View Sensors</title>
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+
+<body class="container">
+
+  <header>
+    <% include partials/header %>
+    <% if (typeof addsensorSucess != "undefined" && addsensorSucess == 1) { %>
+     <script>
+        alert("Successfully added the sensor!");
+     </script>
+     <% } %>
+     <% if (typeof updatesensorSucess != "undefined" && updatesensorSucess == 1) { %>
+      <script>
+         alert("Successfully updated the sensor!");
+      </script>
+      <% } %>
+
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-md-4">
+        <% include partials/navadmin %>
+      </div>
+      <div class="col-md-8">
+        <h1 class="headline">View Sensors</h1><br><br>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Location</th>
+              <th>Price ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% sensors.forEach(function(sensor) { %>
+            <tr>
+              <td><%= sensor.name %></td>
+              <td><%= sensor.type %></td>
+              <td><%= sensor.location %></td>
+              <td><%= sensor.price %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </main>
+
+    <footer class="navbar-fixed-bottom">
+      <% include partials/footer %>
+    </footer>
+
+  </body>
+</html>
